@@ -1,6 +1,6 @@
 const axios = require('axios')
 const dotenv = require('dotenv')
-const {Client, Intents, Webhook, MessageEmbed, WebhookClient} = require('discord.js')
+const {Client, Intents, MessageEmbed, WebhookClient} = require('discord.js')
 
 dotenv.config({path:'./config.env'})
 const token = process.env.TOKEN
@@ -10,7 +10,7 @@ const client = new Client({
     intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]
     });
 
-const webhookURL = 'https://discord.com/api/webhooks/988274730966614046/JdJ4k9Z6JtSDTahGhrTcDCSsulAWDyxB-xQ3unWV9szP-k4IImg_s7DeXHKcyVwHOoHd'
+const webhookURL = process.env.WEBHOOK_URL
 const webhook = new WebhookClient({url: webhookURL})
 
 
