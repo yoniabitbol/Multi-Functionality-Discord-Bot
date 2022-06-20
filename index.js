@@ -33,6 +33,7 @@ async function getVars(link){
         varSize.push(varArray[i].option1)
     }
     const embed = new MessageEmbed()
+    .setColor('ab274f')
     .setTitle(prodName)
     .setThumbnail(prodImg)
     .setFields()
