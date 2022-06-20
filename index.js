@@ -30,7 +30,6 @@ async function getVars(link){
         varID.push(varArray[i].id)
         varSize.push(varArray[i].option1)
     }
-    console.log(varSize)
 
     const embed = new MessageEmbed()
     .setTitle(prodName)
@@ -43,8 +42,6 @@ async function getVars(link){
     webhook.send({
         embeds: [embed]
     })
-
-    console.log(variantFormatter(varID, varSize))
     
 }
 
