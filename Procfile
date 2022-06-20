@@ -1,1 +1,1 @@
-Worker: index.js
+Worker: npm run dev
