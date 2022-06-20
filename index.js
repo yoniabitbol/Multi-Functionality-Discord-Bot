@@ -67,12 +67,4 @@ client.on('messageCreate', (message) =>{
 })
 
 
-
-
-
 client.login(token);
-
-
-
-
-
