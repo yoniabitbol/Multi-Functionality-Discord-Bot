@@ -50,10 +50,7 @@ async function getVars(link){
     }catch(err){
         console.log(err)
     }
-    
-    
-    
-    
+
 }
 
 function variantFormatter(vars, sizes){
@@ -72,9 +69,6 @@ function blackBoxFormatter(vars){
     result += '```'
     return result
 }
-
-
-  
 
 const PREFIX = '$'
 client.on('messageCreate', (message) =>{
