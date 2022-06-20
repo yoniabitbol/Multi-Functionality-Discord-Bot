@@ -67,23 +67,42 @@ const PREFIX = '$'
 client.on('messageCreate', (message) =>{
     if(message.content.startsWith(PREFIX) && !message.author.bot){
       const [CMD_NAME, ...args] = message.content.trim().substring(PREFIX.length).split(/\s+/);
-      if(args[0].includes('collections')){
-        message.reply('This looks like a link to a collection. Please enter a product link.')
+      
+       if(args.length === 0){
+        message.reply('Please enter an argument')
+      }else if(args[0].includes('collections')){
+        message.reply('This looks like a link to a collection. Enter a product link.')
+      }else{
+        args[0] = (args[0].split('?'))[0]
       }
-      args[0] = (args[0].split('?'))[0]
       if(CMD_NAME === 'var'){
-        if(args.length>0){
             try{
                 getVars(args[0])
             }catch(err){
                 message.reply('Invalid Argument')
             }
-        }else{
-       message.reply('Please enter an argument')
-      }
     }
     }
 })
 
+
+// if(args.length === 0){
+//     message.reply('Please enter an argument')
+//   }else if(args[0].includes('collections')){
+//     message.reply('This looks like a link to a collection. Enter a product link.')
+//   }else{
+//     args[0] = (args[0].split('?'))[0]
+//   }
+
+
+//   if(CMD_NAME === 'var'){
+//     try{
+//         getVars(args[0])
+//     }catch(err){
+//         message.reply('Invalid Argument')
+//     }
+// }else{
+// console.log('j')
+// }
 
 client.login(token);
