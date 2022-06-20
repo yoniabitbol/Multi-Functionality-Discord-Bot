@@ -12,3 +12,7 @@ Simple nodeJS application that fetches product variants for any specific product
 ## Using the bot
 
 * In the discord channel where the webhook is connected, send the command `$var <productlink>` for any product on any shopify store and the bot will respond with an image of the product, the product name, all sizes available and their respective variants.
+
+**Here is a use case:**
+
+![alt text](https://imgur.com/a/7u6sO3z)
