@@ -32,7 +32,6 @@ async function getVars(link){
         varID.push(varArray[i].id)
         varSize.push(varArray[i].option1)
     }
-
     const embed = new MessageEmbed()
     .setTitle(prodName)
     .setThumbnail(prodImg)
@@ -40,10 +39,12 @@ async function getVars(link){
     .setFooter('Yoni')
     .setTimestamp()
     .setDescription(
-        variantFormatter(varID,varSize)
+        '\n **Price:** '+ prodPrice +'\n\n'+ variantFormatter(varID,varSize) + '\n' + blackBoxFormatter(varID)
     )
+   
     webhook.send({
-        embeds: [embed]
+        embeds: [embed],
+        varlist: blackBoxFormatter(varID)
     })
     }catch(err){
         console.log(err)
@@ -61,6 +62,17 @@ function variantFormatter(vars, sizes){
     }
     return result
 }
+
+function blackBoxFormatter(vars){
+    let result = '```'
+    for(var i = 0; i<vars.length;i++){
+        result += (vars[i].toString()+'\n')
+    }
+    result += '```'
+    return result
+}
+
+
   
 
 const PREFIX = '$'
@@ -84,25 +96,5 @@ client.on('messageCreate', (message) =>{
     }
     }
 })
-
-
-// if(args.length === 0){
-//     message.reply('Please enter an argument')
-//   }else if(args[0].includes('collections')){
-//     message.reply('This looks like a link to a collection. Enter a product link.')
-//   }else{
-//     args[0] = (args[0].split('?'))[0]
-//   }
-
-
-//   if(CMD_NAME === 'var'){
-//     try{
-//         getVars(args[0])
-//     }catch(err){
-//         message.reply('Invalid Argument')
-//     }
-// }else{
-// console.log('j')
-// }
 
 client.login(token);
