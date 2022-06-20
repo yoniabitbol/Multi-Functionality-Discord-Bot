@@ -20,10 +20,12 @@ client.once('ready', () => {
 
 
 async function getVars(link){
+    try{
     let response = await axios.get(link + '/variants.js')
     let varArray = await response.data.variants
     let prodName = await response.data.title
     let prodImg = await (response.data.featured_image).replace(/^/,'https:')
+    let prodPrice = await (((response.data.price)/100).toString() + '.00')
     let varID = []
     let varSize = []
     for(var i =0; i< varArray.length;i++){
@@ -34,14 +36,21 @@ async function getVars(link){
     const embed = new MessageEmbed()
     .setTitle(prodName)
     .setThumbnail(prodImg)
+    .setFields()
+    .setFooter('Yoni')
     .setTimestamp()
     .setDescription(
         variantFormatter(varID,varSize)
     )
-
     webhook.send({
         embeds: [embed]
     })
+    }catch(err){
+        console.log(err)
+    }
+    
+    
+    
     
 }
 
@@ -52,14 +61,27 @@ function variantFormatter(vars, sizes){
     }
     return result
 }
+  
 
 const PREFIX = '$'
 client.on('messageCreate', (message) =>{
-    if(message.content.startsWith(PREFIX)){
+    if(message.content.startsWith(PREFIX) && !message.author.bot){
       const [CMD_NAME, ...args] = message.content.trim().substring(PREFIX.length).split(/\s+/);
-      getVars(args[0])
-    }else if(false){
-       message.reply('Please enter a valid link')
+      if(args[0].includes('collections')){
+        message.reply('This looks like a link to a collection. Please enter a product link.')
+      }
+      args[0] = (args[0].split('?'))[0]
+      if(CMD_NAME === 'var'){
+        if(args.length>0){
+            try{
+                getVars(args[0])
+            }catch(err){
+                message.reply('Invalid Argument')
+            }
+        }else{
+       message.reply('Please enter an argument')
+      }
+    }
     }
 })
 
