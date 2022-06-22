@@ -85,6 +85,7 @@ client.on('messageCreate', (message) =>{
       if(CMD_NAME === 'var'){
             try{
                 getVars(args[0])
+                console.log(`Webhook sent for variants on "${args[0]}" ✅`)
             }catch(err){
                 message.reply('Invalid Argument')
             }
