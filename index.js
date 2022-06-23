@@ -25,7 +25,8 @@ async function getVars(link){
     let varArray = await response.data.variants
     let prodName = await response.data.title
     let prodImg = await (response.data.featured_image).replace(/^/,'https:')
-    let prodPrice = await (((response.data.price)/100).toString() + '.00')
+    let prodPrice =  (((await response.data.price)/100).toString() + '.00')
+    console.log(prodPrice)
     let varID = []
     let varSize = []
     for(var i =0; i< varArray.length;i++){
