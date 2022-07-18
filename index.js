@@ -73,6 +73,11 @@ function blackBoxFormatter(vars){
 
 const PREFIX = '$'
 client.on('messageCreate', (message) =>{
+
+    if(message.content === "!tawl"){
+        message.reply(`https://cdn.boob.bot/Gifs/${randomInt(1600,1900)}.gif`)
+    }
+
     if(message.content.startsWith(PREFIX) && !message.author.bot){
       const [CMD_NAME, ...args] = message.content.trim().substring(PREFIX.length).split(/\s+/);
       
@@ -93,5 +98,11 @@ client.on('messageCreate', (message) =>{
     }
     }
 })
+
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+console.log(randomInt(1600,1900))
 
 client.login(token);
