@@ -1,6 +1,6 @@
 const axios = require('axios')
 const dotenv = require('dotenv')
-const {Client, Intents, MessageEmbed, WebhookClient} = require('discord.js')
+const {Client, Intents, MessageEmbed, WebhookClient, Channel} = require('discord.js')
 
 dotenv.config({path:'./config.env'})
 const token = process.env.TOKEN
@@ -75,7 +75,10 @@ const PREFIX = '$'
 client.on('messageCreate', (message) =>{
 
     if(message.content === "!tawl"){
-        message.reply(`https://cdn.boob.bot/Gifs/${randomInt(1600,1900)}.gif`)
+        if(message.channel.id === '727228774684557363'){
+            message.reply('not here mf')
+        }else message.reply(`https://cdn.boob.bot/Gifs/${randomInt(1600,1900)}.gif`)
+        
     }
 
     if(message.content.startsWith(PREFIX) && !message.author.bot){
