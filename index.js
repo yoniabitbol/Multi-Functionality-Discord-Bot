@@ -53,7 +53,6 @@ async function getVars(link) {
 
 }
 
-
 async function getCrypto(crypto, currency){
     try{
         let response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${crypto}&order=market_cap_desc&per_page=100&page=1&sparkline=false`)
@@ -105,10 +104,6 @@ function blackBoxFormatter(vars) {
 const PREFIX = '$'
 client.on('messageCreate', (message) => {
 
-    if (message.content === "!tawl") {
-        message.reply(`https://cdn.boob.bot/Gifs/${randomInt(1600, 1900)}.gif`)
-    }
-
     if(message.content.startsWith(PREFIX) && !message.author.bot){
       const [CMD_NAME, ...args] = message.content.trim().substring(PREFIX.length).split(/\s+/);
 
@@ -120,7 +115,6 @@ client.on('messageCreate', (message) => {
             console.log(err)
         }
       }
-
 
        if(args.length === 0){
         message.reply('Please enter an argument')
