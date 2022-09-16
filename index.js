@@ -54,6 +54,39 @@ async function getVars(link){
 
 }
 
+
+async function getCrypto(crypto, currency){
+    try{
+        let response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${crypto}&order=market_cap_desc&per_page=100&page=1&sparkline=false`)
+        let price = await response.data[0].current_price
+        let name = await response.data[0].name
+        let image = await response.data[0].image
+        let marketCap = await response.data[0].market_cap
+        let high24h = await response.data[0].high_24h
+        let low24h = await response.data[0].low_24h
+        let ath = await response.data[0].ath
+        console.log(price)
+
+        const embed = new MessageEmbed()
+        .setColor('ab274f')
+        .setTitle(name)
+        .setThumbnail(image)
+        .setFields()
+        .setFooter('Yoni')
+        .setTimestamp()
+        .setDescription(
+        '\n\n **Current Price: **$'+ price + '\n\n **24h-Low: **$' + low24h + '\n\n **24h-High: **$' + high24h + '\n\n **All-time high: **$' + ath + '\n\n **Market Cap: **$' + marketCap
+    )
+   
+    webhook.send({
+        embeds: [embed]
+    })
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
 function variantFormatter(vars, sizes){
     let result = ''
     for(var i = 0; i<vars.length;i++){
@@ -80,7 +113,18 @@ client.on('messageCreate', (message) =>{
 
     if(message.content.startsWith(PREFIX) && !message.author.bot){
       const [CMD_NAME, ...args] = message.content.trim().substring(PREFIX.length).split(/\s+/);
-      
+      console.log(args[0], args[1], args[2])
+
+      if(CMD_NAME=== 'crypto'){
+        try{
+            getCrypto(args[0], args[1])
+            console.log(`Webhook sent for ${args[0]} in ${args[1]}`)
+        }catch(err){
+            console.log(err)
+        }
+      }
+
+
        if(args.length === 0){
         message.reply('Please enter an argument')
       }else if(args[0].includes('collections')){
@@ -102,7 +146,5 @@ client.on('messageCreate', (message) =>{
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
-
-console.log(randomInt(1600,1900))
 
 client.login(token);
