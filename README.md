@@ -1,6 +1,6 @@
-# Shopify Variant Scraper Discord Bot
+# Multi-Functionality Discord Bot Application
 
-Simple nodeJS application that fetches product variants for any specific product on any given shopify store.
+Simple nodeJS application that fetches product variants for any specific product on any given shopify store, as well as fetches live crypto currency data for most popular cryptocurrencies in most currencies.
 
 ## Get Started
 
@@ -11,4 +11,6 @@ Simple nodeJS application that fetches product variants for any specific product
 
 ## Using the bot
 
-* In the discord channel where the webhook is connected, send the command `$var <productlink>` for any product on any shopify store and the bot will respond with an image of the product, the product name, all sizes available and their respective variants.
+* (Shopify Variant Scraper) In the discord channel where the webhook is connected, send the command `$var <productlink>` for any product on any shopify store and the bot will respond with an image of the product, the product name, all sizes available and their respective variants.
+* (Crypto Price Fetcher) In the discord channel where the webhook is connected, send the command `$crypto <coin> <currency>` for any popular crypto currency and the bot will respond with live data about the coin fetched from the CoinGecko API.
+
