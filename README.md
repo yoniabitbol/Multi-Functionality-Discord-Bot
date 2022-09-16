@@ -1,6 +1,6 @@
 # Multi-Functionality Discord Bot Application
 
-Simple nodeJS application that fetches product variants for any specific product on any given shopify store, as well as fetches live crypto currency data for most popular cryptocurrencies in most currencies.
+Simple nodeJS application that fetches product variants for any specific product on any given shopify store, as well as live cryptocurrency price and conversion data for most popular cryptocurrencies in most fiat currencies.
 
 ## Get Started
 
