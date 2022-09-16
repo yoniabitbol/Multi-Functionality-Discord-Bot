@@ -53,7 +53,6 @@ async function getVars(link) {
 
 }
 
-<<<<<<< HEAD
 
 async function getCrypto(crypto, currency){
     try{
@@ -65,7 +64,6 @@ async function getCrypto(crypto, currency){
         let high24h = await response.data[0].high_24h
         let low24h = await response.data[0].low_24h
         let ath = await response.data[0].ath
-        console.log(price)
 
         const embed = new MessageEmbed()
         .setColor('ab274f')
@@ -88,9 +86,6 @@ async function getCrypto(crypto, currency){
 }
 
 function variantFormatter(vars, sizes){
-=======
-function variantFormatter(vars, sizes) {
->>>>>>> 597f1d9e6ee33a2e4a5e9214c2ab57a7ed57f533
     let result = ''
     for (var i = 0; i < vars.length; i++) {
         result += (sizes[i].toString() + ' - ' + vars[i].toString() + '\n')
@@ -114,10 +109,8 @@ client.on('messageCreate', (message) => {
         message.reply(`https://cdn.boob.bot/Gifs/${randomInt(1600, 1900)}.gif`)
     }
 
-<<<<<<< HEAD
     if(message.content.startsWith(PREFIX) && !message.author.bot){
       const [CMD_NAME, ...args] = message.content.trim().substring(PREFIX.length).split(/\s+/);
-      console.log(args[0], args[1], args[2])
 
       if(CMD_NAME=== 'crypto'){
         try{
@@ -138,20 +131,6 @@ client.on('messageCreate', (message) => {
       }
       if(CMD_NAME === 'var'){
             try{
-=======
-    if (message.content.startsWith(PREFIX) && !message.author.bot) {
-        const [CMD_NAME, ...args] = message.content.trim().substring(PREFIX.length).split(/\s+/);
-
-        if (args.length === 0) {
-            message.reply('Please enter an argument')
-        } else if (args[0].includes('collections')) {
-            message.reply('This looks like a link to a collection. Enter a product link.')
-        } else {
-            args[0] = (args[0].split('?'))[0]
-        }
-        if (CMD_NAME === 'var') {
-            try {
->>>>>>> 597f1d9e6ee33a2e4a5e9214c2ab57a7ed57f533
                 getVars(args[0])
                 console.log(`Webhook sent for variants on "${args[0]}" ✅`)
             } catch (err) {
@@ -163,10 +142,6 @@ client.on('messageCreate', (message) => {
 
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
-<<<<<<< HEAD
   }
-=======
-}
->>>>>>> 597f1d9e6ee33a2e4a5e9214c2ab57a7ed57f533
 
 client.login(token);
