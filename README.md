@@ -12,5 +12,7 @@ Simple nodeJS application that fetches product variants for any specific product
 ## Using the bot
 
 * (Shopify Variant Scraper) In the discord channel where the webhook is connected, send the command `$var <productlink>` for any product on any shopify store and the bot will respond with an image of the product, the product name, all sizes available and their respective variants.
-* (Crypto Price Fetcher) In the discord channel where the webhook is connected, send the command `$crypto <coin> <currency>` for any popular crypto currency and the bot will respond with live data about the coin fetched from the CoinGecko API.
+* (Crypto Price Fetcher) In the discord channel where the webhook is connected, send the command `$crypto <coin> <currency>` for any popular crypto currency and the bot will respond with live data about the coin fetched.
+
+APIs used in this project courtesy of [CoinGecko](https://www.coingecko.com/en/api/documentation) and [Shopify](https://shopify.dev/api)
 
