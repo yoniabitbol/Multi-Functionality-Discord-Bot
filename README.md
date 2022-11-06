@@ -25,7 +25,7 @@ Below is an example output for a Bitcoin price lookup:
 ![Bitcoin](crypto.png)
 
 Below is an example output for a Sneaker on a Shopify store:
-![Variants](variants.png)
+![image](https://user-images.githubusercontent.com/46516280/200154552-2d595e89-a3f5-4e58-808a-95352b7ddb4e.png)
 
 APIs used in this project courtesy of [CoinGecko](https://www.coingecko.com/en/api/documentation) 🦎 and [Shopify](https://shopify.dev/api) 🛍
 
