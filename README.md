@@ -23,11 +23,11 @@ node bot.js
 
 Below is an example output for a Bitcoin price lookup:
 
-<img src="https://user-images.githubusercontent.com/46516280/200154581-0d2e759b-9498-4acf-afd6-45a098de72a0.png" width="48">
+<img src="https://user-images.githubusercontent.com/46516280/200154581-0d2e759b-9498-4acf-afd6-45a098de72a0.png" width="300">
 
 Below is an example output for a Sneaker on a Shopify store:
 
-![image](https://user-images.githubusercontent.com/46516280/200154552-2d595e89-a3f5-4e58-808a-95352b7ddb4e.png)
+<img src="https://user-images.githubusercontent.com/46516280/200154552-2d595e89-a3f5-4e58-808a-95352b7ddb4e.png" width="600">
 
 APIs used in this project courtesy of [CoinGecko](https://www.coingecko.com/en/api/documentation) 🦎 and [Shopify](https://shopify.dev/api) 🛍
 
