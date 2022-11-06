@@ -23,7 +23,7 @@ node bot.js
 
 Below is an example output for a Bitcoin price lookup:
 
-![image](https://user-images.githubusercontent.com/46516280/200154581-0d2e759b-9498-4acf-afd6-45a098de72a0.png)
+<img src="https://user-images.githubusercontent.com/46516280/200154581-0d2e759b-9498-4acf-afd6-45a098de72a0.png" width="48">
 
 Below is an example output for a Sneaker on a Shopify store:
 
