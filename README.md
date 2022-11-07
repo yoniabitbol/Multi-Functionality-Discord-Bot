@@ -4,6 +4,7 @@ Simple nodeJS application that fetches product variants for any specific product
 
 ## Get Started
 
+* Make sure you have [node.js](https://nodejs.org/en/) installed on your machine
 * Clone the repository on your machine and create a file named `config.env`, where you will **store all sensitive data such as tokens and webhook URLs.**
 * In the `config.env` file, create `TOKEN` and add your own bot's discord token, and `WEBHOOK_URL` which will hold the value of your channel's webhook URL.
 * In a terminal in the project directory, run `npm install` to install all dependencies and packages necessary to get the script up and running.
